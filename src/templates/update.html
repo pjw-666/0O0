@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action = "{{ request.path }}" method = "post">
+    {% for student in students %}
+         <label for = "Sno">Sno</label><br>
+         <input type = "text" name = "Sno" value = "{{student.Sno}}" /><br>
+         <label for = "Sname">Sname</label><br>
+         <input type = "text" name = "Sname" value = "{{student.Sname}}" /><br>
+         <label for = "Ssex">Ssex</label><br>
+         <input type = "text" name = "Ssex" value = "{{student.Ssex}}" /><br>
+         <label for = "Sage">Sage</label><br>
+         <input type = "text" name = "Sage" value = "{{student.Sage}}" /><br>
+        <label for = "Sdept">Sdept</label><br>
+         <input type = "text" name = "Sdept" value = "{{student.Sdept}}" /><br>
+        <label for = "Scholarship">Scholarship</label><br>
+         <input type = "text" name = "Scholarship" value = "{{student.Scholarship}}" /><br>
+         <input type = "submit" value = "Submit" />
+    {%endfor %}
+      </form>
+</body>
+</html>

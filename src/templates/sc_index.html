@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+        border-collapse:collapse;
+        }
+        th,td{
+        border:1px solid black;
+        padding:5px;
+        }
+    </style>
+</head>
+<body>
+{%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+<span><a href = "/">学生信息
+         </a></span>
+<span>**********<a href="/course_info">课程信息</a></span>
+<span>**********学生成绩管理(<a href = "/sc/add">添加
+         </a>)</span>
+<span>**********<a href="dept/data">成绩统计</a></span>
+<table>
+         <thead>
+            <tr>
+               <th>Sno</th>
+               <th>Cno</th>
+               <th>Grade</th>
+                <th>修改</th>
+                <th>删除</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for sc in scs %}
+               <tr>
+                  <td>{{ sc.Sno }}</td>
+                  <td>{{ sc.Cno }}</td>
+                  <td>{{ sc.Grade}}</td>
+                   <td><a href="/sc/update/{{sc.Cno}}/{{sc.Sno}}">修改</a></td>
+                   <td><a href="/sc/delete/{{sc.Cno}}/{{sc.Sno}}">删除</a></td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+</body>
+</html>

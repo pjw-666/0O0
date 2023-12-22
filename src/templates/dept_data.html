@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+        border-collapse:collapse;
+        }
+        th,td{
+        border:1px solid black;
+        padding:5px;
+        }
+    </style>
+</head>
+<body>
+<span><a href = "/">学生信息</a></span>
+ <span>**********<a href="/course_info">课程信息</a></span>
+ <span>**********<a href="/sc_info">学生成绩管理</a></span>
+ <span>**********成绩统计（<a href="/dept/rank">排名信息</a>）</span>
+<table>
+         <thead>
+            <tr>
+                <th>系别</th>
+               <th>平均成绩</th>
+               <th>最好成绩</th>
+               <th>最差成绩</th>
+               <th>优秀率</th>
+                <th>不及格人数</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for zong in zongs %}
+               <tr>
+                  <td>{{ zong.sdept }}</td>
+                   <td>{{ zong.avg}}</td>
+                  <td>{{zong.max }}</td>
+                  <td>{{ zong.min}}</td>
+                   <td>{{zong.youxiu/zong.gong*100}}%</td>
+                   <td>{{zong.bujig}}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+</body>
+</html>

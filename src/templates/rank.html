@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+        border-collapse:collapse;
+        }
+        th,td{
+        border:1px solid black;
+        padding:5px;
+        }
+    </style>
+</head>
+<body>
+<table>
+         <thead>
+            <tr>
+                <th>学号</th>
+               <th>姓名</th>
+               <th>课程</th>
+               <th>成绩</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for rank in ranks %}
+               <tr>
+                  <td>{{ rank.Sno }}</td>
+                   <td>{{ rank.Sname}}</td>
+                  <td>{{rank.Cname}}</td>
+                  <td>{{ rank.Grade}}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+<a href="/dept/data">返回</a>
+</body>
+</html>
