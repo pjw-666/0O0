@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+        border-collapse:collapse;
+        }
+        th,td{
+        border:1px solid black;
+        padding:5px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+         <thead>
+            <tr>
+               <th>Sno</th>
+               <th>Sname</th>
+               <th>Sage</th>
+               <th>Ssex</th>
+                <th>Sdept</th>
+                <th>Cname</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for result in results %}
+               <tr>
+                  <td>{{ result.Sno }}</td>
+                  <td>{{ result.Sname }}</td>
+                  <td>{{ result.Sage}}</td>
+                  <td>{{ result.Ssex}}</td>
+                   <td>{{ result.Sdept}}</td>
+                   <td>{{ result.Cname}}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+<a href="/">返回</a>
+</body>
+</html>

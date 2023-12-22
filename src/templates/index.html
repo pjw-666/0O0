@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+        border-collapse:collapse;
+        }
+        th,td{
+        border:1px solid black;
+        padding:5px;
+        }
+    </style>
+</head>
+<body>
+ {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+<span>学生信息 (<a href = "{{ url_for('new') }}">添加
+         </a>)</span>
+ <span>**********<a href="/course_info">课程信息</a></span>
+ <span>**********<a href="/sc_info">学生成绩管理</a></span>
+ <span>**********<a href="/dept/data">成绩统计</a></span>
+ <form action="/search" method="post">
+     <input type = "text" name = "Sno" placeholder = "请输入学号" />
+     <input type="submit" name="submit"><br>
+ </form>
+<table>
+         <thead>
+            <tr>
+               <th>Sno</th>
+               <th>Sname</th>
+               <th>Ssex</th>
+               <th>Sage</th>
+                <th>Sdept</th>
+                <th>Scholarship</th>
+                <th>修改</th>
+                <th>删除</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for student in students %}
+               <tr>
+                  <td>{{ student.Sno }}</td>
+                  <td>{{ student.Sname }}</td>
+                  <td>{{ student.Ssex}}</td>
+                  <td>{{ student.Sage}}</td>
+                   <td>{{ student.Sdept}}</td>
+                   <td>{{ student.Scholarship}}</td>
+                   <td><a href="/update/{{student.Sno}}">修改</a></td>
+                   <td><a href="/delete/{{student.Sno}}">删除</a></td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+</body>
+</html>
